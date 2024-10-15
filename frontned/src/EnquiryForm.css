@@ -1,0 +1,60 @@
+.enquiry-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the form horizontally */
+    justify-content: center;
+    background-color: #bed0e1;
+    color: #fff;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.enquiry-header {
+    color: black;
+    text-align: center;
+    margin-bottom: 20px; /* Added margin for spacing */
+}
+
+form {
+    text-align: center;
+    width: 100%;
+    max-width: 25rem; 
+}
+
+.input-field, .phone-field, .text-area {
+    width: 100%; /* Uniform width for all input fields */
+    padding: 10px;
+    margin-bottom: 15px; /* Consistent margin */
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Added border for better contrast */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    background-color: #fff;
+    color: #333;
+}
+
+.text-area {
+    height: 80px;
+}
+
+.submit-button {
+    background-color: #FFD700;
+    color: #003366;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #ffc700;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
