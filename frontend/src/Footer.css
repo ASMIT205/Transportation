@@ -3,19 +3,14 @@
     justify-content: space-between;
     background-color: #003366;
     color: #fff;
-    padding: 40px;
+    padding: 2rem;
     font-family: Arial, sans-serif;
     font-size: 14px; /* Corrected comma to semicolon */
 }
 
 .left-section, .middle-section, .right-section {
     flex: 1;
-    padding: 10px; /* Corrected comma to semicolon */
 }
-
-/* .left-section {
-    max-width: 300px;
-} */
 
 .middle-section {
     display: flex;
@@ -31,7 +26,7 @@
 
 .logo {
     width: 150px;
-    margin-bottom: 10px;
+    margin-bottom: 0.6rem;
 }
 
 .company-description {
@@ -43,23 +38,22 @@
 .social-icons {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 1.5rem;
 }
 
 .icon {
-    font-size: 24px;
-    margin-right: 15px;
+    font-size: 1.4rem;
+    margin-right: 0.8rem;
     cursor: pointer;
     color: #FFD700;
 }
 
-.middle-section h4 {
-    font-size: 16px;
-    margin-bottom: 10px;
+.left-section p {
+    line-height: 1.9;
 }
 
-.middle-section p, .left-section p {
-    line-height: 1.6;
+.middle-section p {
+    line-height: 0.7;
 }
 
 .right-section {
@@ -68,4 +62,36 @@
 
 .phone-number{
     color: chocolate;
+}
+
+.contact-us, .our-address{
+    color: black;
+    text-align: center;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack sections vertically */
+        text-align: center; /* Center align text for better look */
+        padding: 1rem; /* Adjust padding for mobile */
+    }
+
+    .left-section, .middle-section, .right-section {
+        flex: 1;
+        margin-bottom: 1.5rem; /* Add spacing between sections */
+    }
+
+    .social-icons {
+        margin-top: 1rem; /* Reduce margin for smaller screens */
+    }
+
+    .icon {
+        margin-right: 0.5rem; /* Reduce spacing between icons */
+        font-size: 1.2rem; /* Adjust icon size for mobile */
+    }
+
+    .phone-number {
+        font-size: 14px; /* Adjust font size for mobile */
+    }
 }
