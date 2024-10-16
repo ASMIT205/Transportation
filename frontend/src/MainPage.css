@@ -10,10 +10,9 @@ html {
 /* Header section with a large background image */
 /* Header section with a full-screen background image */
 .header {
-    height: 50rem;
-    /* Full viewport height */
-    width: 79rem;
-    /* Full viewport width */
+    width: 100vw; /* Viewport width */
+    height: 100vh; /* Viewport height */
+    /* Makes sure the entire image is visible */
     background-image: url('./image.png');
     /* Path to your image */
     background-size: cover;
@@ -27,9 +26,9 @@ html {
 }
 
 .img {
-    height: 50vh;
-    /* Full viewport height */
-    width:100%;
+    width: 100vw; /* Viewport width */
+    height: 100vh; /* Viewport height */
+    object-fit: contain; /* Makes sure the entire image is visible */
 }
 
 .logo {
@@ -60,7 +59,7 @@ html {
     /* Positions the navbar on top of the image */
     top: -4.5rem;
     left: 0;
-    width: 78rem;
+    width: 100%;
     /* Ensures the navbar spans the full width of the header */
 
     z-index: 10;
@@ -76,16 +75,22 @@ html {
 .nav-links li {
     color: #333;
     cursor: pointer;
+    margin: 0 1rem;
 }
 
 .call-button {
     background-color: #6c63ff;
     color: white;
-    padding: 0rem 2rem;
-    margin-right: 0rem;
+    padding: 0rem 0.7rem;
+    padding-right: 1rem;
+    margin-right: 0.3rem;
     border-radius: 20rem;
     cursor: pointer;
 }
+
+.call-button {
+    display: block;
+  }
 
 .header-content {
     display: flex;
@@ -101,12 +106,12 @@ html {
     justify-content: space-between;
     padding: 1.5rem;
     background-color: #f8f8f8;
-    width: 76rem;
+    
 
 }
 
 .overview-text {
-    width: 79rem;
+    width: 100%;
 }
 
 .overview-text h3 {
@@ -130,14 +135,14 @@ html {
 
 .overview-stats {
 
-    width: 30rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0rem;
 }
 
 .overview-stats1 {
-    width: 30rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0rem;
@@ -156,3 +161,42 @@ html {
     font-size: 1rem;
     color: #6b5b95;
 }
+
+
+
+
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+  }
+  
+  /* Media query for mobile */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: white;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .nav-links.open {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  }

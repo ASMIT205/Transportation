@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainPage.css'; // Add your styles in this file
+import './mainPage.js';
 
 const Navitem = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Function to handle hover over the hamburger menu
+  const handleMouseEnter = () => {
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className="App">
       <header className="header">
         <nav className="navbar">
           <div className="logo"></div>
-          <ul className="nav-links">
+
+          {/* Hamburger button for mobile with hover functionality */}
+          <div
+            className="hamburger"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </div>
+
+          {/* Navigation links that open on hover */}
+          <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
             <li>Home</li>
             <li>Company</li>
             <li>Services</li>
@@ -15,15 +40,14 @@ const Navitem = () => {
             <li>Contact</li>
             <li>Careers</li>
           </ul>
-          <div className="call-button">Call Us: +91 90393 49475</div>
+
+          <div className="call-button">
+            📞 <a href="tel:+918434531515">Call us</a>
+          </div>
         </nav>
 
-        {/* The image is applied as a background */}
-        <div className="header-content">
-          {/* Any content you want to display on the image can go here */}
-        </div>
+        <div className="header-content"></div>
       </header>
-
 
       <div className="overview-container">
         <div className="overview-text">
@@ -66,8 +90,6 @@ const Navitem = () => {
           </div>
         </div>
       </div>
-
-
     </div>
   );
 };

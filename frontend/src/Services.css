@@ -1,10 +1,10 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 2rem;
+    gap: 20px;
+    padding: 20px;
     background-color: #f8f8f8;
-    width: 76rem;
+    
   }
   
   .grid-item img {
@@ -15,8 +15,8 @@
   
   .grid-item {
     background-color: #fff;
-    padding: 0.5rem;
-    box-shadow: 0.1rem 1px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
   }
   
@@ -31,8 +31,7 @@
    
    color: #6b5b95;
     font-size: 1.5rem;
-    margin-bottom: 0rem;
+    margin-bottom: 10px;
     margin-left: 22px;
-    width: 76rem;
   }
   
