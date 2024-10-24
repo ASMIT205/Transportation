@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ServicesSection = () => {
+const WhyChooseUs = () => {
   return (
-    <section className="flex flex-col items-center justify-center h-1/2 bg-white py-4">
+    <section className="flex flex-col items-center justify-center h-1/2 bg-white py-4 mt-5">
       {/* Our Services Tag */}
       <div className="flex items-center space-x-2 text-peach mb-4">
         <div className="flex items-center">
@@ -15,7 +15,7 @@ const ServicesSection = () => {
             <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
           </svg>
         </div>
-        <span className="text-sm font-medium">OUR SERVICES</span>
+        <span className="text-sm font-medium">WHY CHOOSE US</span>
         <div className="flex items-center">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -30,10 +30,11 @@ const ServicesSection = () => {
 
       {/* Main Heading */}
       <h1 className="text-4xl font-bold text-center text-gray-900 mb-4">
-        Moving Your Products Across <br /> All Borders
+      We Aim to Contribute Well to <br/>
+      Your Personal Cargo Needs
       </h1>
     </section>
   );
 };
 
-export default ServicesSection;
+export default WhyChooseUs;

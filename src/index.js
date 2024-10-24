@@ -2,16 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
+import ServicesSection from './services';
 import reportWebVitals from './reportWebVitals';
-import Navitem from './navitem';
-import Services from './Services';
+import Servicesbox from './services-box';
+import HeaderComponent from './AboutUs';
+import WhyChooseUs from './WhyChooseUs1';
+import FeatureGrid from './WhyChooseUs2';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <Navitem />
-    <Services />
+    
+    <ServicesSection/>
+    <Servicesbox/>
+    <HeaderComponent/>
+    <WhyChooseUs/>
+    <FeatureGrid/>
   </React.StrictMode>
 );
 
