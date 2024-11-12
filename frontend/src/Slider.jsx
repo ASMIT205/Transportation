@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const Slider = () => {
   const slides = [
@@ -17,6 +17,8 @@ const Slider = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef();
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
@@ -26,27 +28,99 @@ const Slider = () => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
-  return (
+  // Prevent body scrolling when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
 
-    <div className="relative h-screen ">
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [menuOpen]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  return (
+    <div className="relative h-screen">
       {/* Navbar */}
-      <nav className={`absolute top-0 left-0 w-full z-10 transition-colors duration-500 text-white`}>
-        <div className="container mx-auto flex justify-between items-center py-4">
+      <nav className="absolute top-0 left-0 w-full z-10 transition-colors duration-500 text-white">
+        <div className="container mx-auto flex justify-between items-center py-4 px-4">
           <h1 className="text-2xl font-bold">Time Express Cargo</h1>
-          <ul className="flex space-x-6 mr-12 text-bold ">
+          
+          {/* Toggle button for mobile */}
+          <button
+            className="md:hidden px-4 py-2 bg-green-500 text-white rounded focus:outline-none"
+            onClick={() => setMenuOpen(true)}
+          >
+            ☰
+          </button>
+
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex space-x-6 mr-12 text-bold">
             <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">Home</a></li>
-            <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">About </a></li>
+            <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">About</a></li>
             <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">Services</a></li>
             <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">Careers</a></li>
             <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">Contact</a></li>
           </ul>
         </div>
       </nav>
+
+      {/* Mobile Sidebar Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-20 flex">
+          {/* Overlay */}
+          <div className="fixed inset-0 bg-black opacity-50" onClick={() => setMenuOpen(false)}></div>
+
+          {/* Sidebar */}
+          <div
+            ref={menuRef}
+            className="relative bg-black text-white p-8 transform transition-transform duration-300 ease-in-out overflow-y-auto max-h-screen"
+            style={{ maxHeight: '50vh' }} // Limit sidebar height to fit content
+          >
+            <h1 className="text-3xl font-bold mb-8">Time Express Cargo</h1>
+            <ul className="space-y-6">
+              <li><a href="#" className="block text-lg font-bold">Home</a></li>
+              <li><a href="#" className="block text-lg font-bold">About Company</a></li>
+              <li><a href="#" className="block text-lg font-bold">Services</a></li>
+              <li><a href="#" className="block text-lg font-bold">Tracking</a></li>
+              <li><a href="#" className="block text-lg font-bold">Contact</a></li>
+            </ul>
+
+            {/* Social Icons */}
+            <div className="mt-8 flex space-x-4">
+              <a href="#"><i className="fab fa-facebook"></i></a>
+              <a href="#"><i className="fab fa-linkedin"></i></a>
+              <a href="#"><i className="fab fa-skype"></i></a>
+              <a href="#"><i className="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute  inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
         >
           <img src={slide.image} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
@@ -55,6 +129,7 @@ const Slider = () => {
           </div>
         </div>
       ))}
+      
       {/* Navigation buttons */}
       <button
         onClick={prevSlide}
@@ -74,4 +149,3 @@ const Slider = () => {
 };
 
 export default Slider;
-
