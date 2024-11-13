@@ -16,12 +16,9 @@ function App() {
   return (
     <div>
       <Header />
-      <Navbar scrollToEnquiryForm={scrollToEnquiryForm} />
+      <Navbar />
       <Slider />
-      <div ref={enquiryFormRef}>  {/* Apply the ref here */}
-        <EnquiryForm />
-      </div>
-
+      <EnquiryForm />
       <Footer />
     </div>
   );
