@@ -1,11 +1,19 @@
 import React from 'react';
+import ServicesSection from './Services';
+import reportWebVitals from './reportWebVitals';
+import Servicesbox from './services-box';
+import HeaderComponent from './AboutUs';
+import WhyChooseUs from './WhyChooseUs1';
+import FeatureGrid from './WhyChooseUs2';
 
 function App() {
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-500">
-        Hello, Tailwind CSS!
-      </h1>
+    <div >
+      <ServicesSection/>
+    <Servicesbox/>
+    <HeaderComponent/>
+    <WhyChooseUs/>
+    <FeatureGrid/>
     </div>
   );
 }
