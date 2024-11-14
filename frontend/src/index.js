@@ -1,24 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
-import ServicesSection from './Services';
+import App from './App';
+// import ServicesSection from './Services';
 import reportWebVitals from './reportWebVitals';
-import Servicesbox from './services-box';
-import HeaderComponent from './AboutUs';
-import WhyChooseUs from './WhyChooseUs1';
-import FeatureGrid from './WhyChooseUs2';
+// import Servicesbox from './services-box';
+// import HeaderComponent from './AboutUs';
+// import WhyChooseUs from './WhyChooseUs1';
+// import FeatureGrid from './WhyChooseUs2';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     
-    <ServicesSection/>
-    <Servicesbox/>
-    <HeaderComponent/>
-    <WhyChooseUs/>
-    <FeatureGrid/>
+    // <ServicesSection/>
+    // <Servicesbox/>
+    // <HeaderComponent/>
+    // <WhyChooseUs/>
+    // <FeatureGrid/>
+  <App/>
   </React.StrictMode>
 );
 
