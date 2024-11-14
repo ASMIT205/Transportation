@@ -1,0 +1,21 @@
+.heading::before {
+    content: '<'; /* Adds < before the content */
+}
+
+.heading::after {
+    content: '>'; /* Adds > after the content */
+}
+
+.heading{
+    
+    position: relative;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 0 17px;
+    color: #ff5f15;
+
+}
