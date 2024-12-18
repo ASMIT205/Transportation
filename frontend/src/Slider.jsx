@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const Slider = () => {
+const Slider = ({ onLinkClick }) => {
   const slides = [
     {
       image: "./images/img1.png",
@@ -64,7 +64,7 @@ const Slider = () => {
       <nav className="absolute top-0 left-0 w-full z-10 transition-colors duration-500 text-white">
         <div className="container mx-auto flex justify-between items-center py-4 px-4">
           <h1 className="text-2xl font-bold">Time Express Cargo</h1>
-          
+
           {/* Toggle button for mobile */}
           <button
             className="md:hidden px-4 py-2 bg-green-500 text-white rounded focus:outline-none"
@@ -75,11 +75,46 @@ const Slider = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6 mr-12 text-bold">
-            <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">Home</a></li>
-            <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">About</a></li>
-            <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">Services</a></li>
-            <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">Careers</a></li>
-            <li><a href="#" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-300">Contact</a></li>
+            <li>
+              <button
+                onClick={() => onLinkClick('header')}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onLinkClick('serviceSection')}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                Services
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onLinkClick('whyChooseUs')}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                About
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onLinkClick('enquiryForm')}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                Book Now
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onLinkClick('footer')}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                Contact Us
+              </button>
+            </li>
           </ul>
         </div>
       </nav>
@@ -98,11 +133,46 @@ const Slider = () => {
           >
             <h1 className="text-3xl font-bold mb-8">Time Express Cargo</h1>
             <ul className="space-y-6">
-              <li><a href="#" className="block text-lg font-bold">Home</a></li>
-              <li><a href="#" className="block text-lg font-bold">About Company</a></li>
-              <li><a href="#" className="block text-lg font-bold">Services</a></li>
-              <li><a href="#" className="block text-lg font-bold">Tracking</a></li>
-              <li><a href="#" className="block text-lg font-bold">Contact</a></li>
+            <li>
+              <button
+                onClick={() => {onLinkClick('header');setMenuOpen(false);}}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => {onLinkClick('serviceSection');setMenuOpen(false);}}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                Services
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => {onLinkClick('whyChooseUs');setMenuOpen(false);}}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                About
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => {onLinkClick('enquiryForm');setMenuOpen(false);}}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                Book Now
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => {onLinkClick('footer');setMenuOpen(false);}}
+                className="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-blue-300"
+              >
+                Contact Us
+              </button>
+            </li>
             </ul>
 
             {/* Social Icons */}
@@ -129,7 +199,7 @@ const Slider = () => {
           </div>
         </div>
       ))}
-      
+
       {/* Navigation buttons */}
       <button
         onClick={prevSlide}

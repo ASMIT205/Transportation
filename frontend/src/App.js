@@ -3,35 +3,71 @@ import React, { useRef } from 'react';
 import Header from './Header.jsx'
 import Navbar from './Navbar.jsx'
 import Slider from './Slider.jsx';
-import EnquiryForm from './EnquiryForm.jsx';
-import Footer from './Footer.jsx';
 import ServicesSection from './Services';
-import reportWebVitals from './reportWebVitals';
 import Servicesbox from './services-box';
-import HeaderComponent from './AboutUs';
 import WhyChooseUs from './WhyChooseUs1';
 import FeatureGrid from './WhyChooseUs2';
+import EnquiryForm from './EnquiryForm.jsx';
+import Footer from './Footer.jsx';
 
 function App() {
-  const enquiryFormRef = useRef(null);  // Reference for EnquiryForm
 
-  const scrollToEnquiryForm = () => {
-    if (enquiryFormRef.current) {
-      enquiryFormRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+  const headerRef = useRef(null);
+  const serviceSectionrRef = useRef(null);
+  const whyChooseUsRef = useRef(null);
+  const enquiryFormRef = useRef(null);
+  const footerRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
   };
+
   return (
     <div>
-      <Header />
-      <Navbar />
-      <Slider />
-          <ServicesSection/>
-    <Servicesbox/>
-    <HeaderComponent/>
-    <WhyChooseUs/>
-    <FeatureGrid/>
-      <EnquiryForm />
-      <Footer />
+      <div ref={headerRef}>
+        <Header />
+      </div>
+
+      <Navbar
+        onLinkClick={(section) => {
+          if (section === 'header') scrollToSection(headerRef);
+          if (section === 'serviceSection') scrollToSection(serviceSectionrRef);
+          if (section === 'whyChooseUs') scrollToSection(whyChooseUsRef);
+          if (section === 'enquiryForm') scrollToSection(enquiryFormRef);
+          if (section === 'footer') scrollToSection(footerRef);
+        }}
+      />
+
+      <Slider
+        onLinkClick={(section) => {
+          if (section === 'header') scrollToSection(headerRef);
+          if (section === 'serviceSection') scrollToSection(serviceSectionrRef);
+          if (section === 'whyChooseUs') scrollToSection(whyChooseUsRef);
+          if (section === 'enquiryForm') scrollToSection(enquiryFormRef);
+          if (section === 'footer') scrollToSection(footerRef);
+        }}
+      />
+
+      <div ref={serviceSectionrRef}>
+
+        <ServicesSection />
+        <Servicesbox />
+      </div>
+
+      <div ref={whyChooseUsRef}>
+
+        <WhyChooseUs />
+        <FeatureGrid />
+      </div>
+
+      <div ref={enquiryFormRef}>
+        <EnquiryForm />
+      </div>
+
+      <div ref={footerRef}>
+
+        <Footer />
+      </div>
     </div>
   );
 }
