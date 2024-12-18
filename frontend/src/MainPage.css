@@ -1,0 +1,202 @@
+/* General styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header section with a large background image */
+/* Header section with a full-screen background image */
+.header {
+    width: 100vw; /* Viewport width */
+    height: 100vh; /* Viewport height */
+    /* Makes sure the entire image is visible */
+    background-image: url('./image.png');
+    /* Path to your image */
+    background-size: cover;
+    /* Makes sure the image covers the entire header area */
+    background-position: center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
+    position: relative;
+    /* Makes the navbar stay on top of the image */
+}
+
+.img {
+    width: 100vw; /* Viewport width */
+    height: 100vh; /* Viewport height */
+    object-fit: contain; /* Makes sure the entire image is visible */
+}
+
+.logo {
+    height: 7rem;
+    /* Full viewport height */
+    width: 1rem;
+    /* Full viewport width */
+    background-image: url('./logo-transparent-pdf-1.png');
+    /* Path to your image */
+    background-size: cover;
+    /* Makes sure the image covers the entire header area */
+    background-position: center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
+    position: relative;
+    /* Makes the navbar stay on top of the image */
+}
+
+
+/* Navbar styling (on top of the image) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 0rem;
+    position: absolute;
+    /* Positions the navbar on top of the image */
+    top: -4.5rem;
+    left: 0;
+    width: 100%;
+    /* Ensures the navbar spans the full width of the header */
+
+    z-index: 10;
+    /* Ensures the navbar stays above the image */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li {
+    color: #333;
+    cursor: pointer;
+    margin: 0 1rem;
+}
+
+.call-button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 0rem 0.7rem;
+    padding-right: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 20rem;
+    cursor: pointer;
+}
+
+.call-button {
+    display: block;
+  }
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    color: white;
+}
+
+
+.overview-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background-color: #f8f8f8;
+    
+
+}
+
+.overview-text {
+    width: 100%;
+}
+
+.overview-text h3 {
+    color: #6b5b95;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.overview-text blockquote {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    padding-left: 2 rem;
+}
+
+.overview-text p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5rem;
+}
+
+.overview-stats {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+
+.overview-stats1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.stat p {
+    font-size: 1rem;
+    color: #6b5b95;
+}
+
+
+
+
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+  }
+  
+  /* Media query for mobile */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: white;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .nav-links.open {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  }
