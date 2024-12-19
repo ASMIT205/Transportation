@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import { isValidPhoneNumber } from 'react-phone-number-input';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import './EnquiryForm.css';
 
 const ContactForm = () => {
@@ -34,27 +34,27 @@ const ContactForm = () => {
       designation,
     };
 
-    // emailjs
-    //   .send(
-    //     'service_qvejz4q',     // Replace with your Service ID
-    //     'template_dsriave',    // Replace with your Template ID
-    //     templateParams,
-    //     'DQMTMJsXJ4BENCHQj'      // Replace with your Public Key
-    //   )
-    //   .then((response) => {
-    //     console.log('Email sent successfully:', response);
-    //     setSuccess('Your message has been sent successfully.');
-    //     setName('');
-    //     setPhone('');
-    //     setEmail('');
-    //     setMessage('');
-    //     setType_of_shipment('');
-    //     setDesignation('');
-    //   })
-    //   .catch((err) => {
-    //     console.error('Failed to send email:', err);
-    //     setError('Failed to send the message. Please try again later1.');
-    //   });
+    emailjs
+      .send(
+        'service_qvejz4q',     // Replace with your Service ID
+        'template_dsriave',    // Replace with your Template ID
+        templateParams,
+        'DQMTMJsXJ4BENCHQj'      // Replace with your Public Key
+      )
+      .then((response) => {
+        console.log('Email sent successfully:', response);
+        setSuccess('Your message has been sent successfully.');
+        setName('');
+        setPhone('');
+        setEmail('');
+        setMessage('');
+        setType_of_shipment('');
+        setDesignation('');
+      })
+      .catch((err) => {
+        console.error('Failed to send email:', err);
+        setError('Failed to send the message. Please try again later1.');
+      });
   };
 
   return (
